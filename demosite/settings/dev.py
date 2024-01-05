@@ -8,7 +8,7 @@ DATABASES = {
         'NAME': 'demosite',
         'USER': 'postgres',
         'PASSWORD': 'psql',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
