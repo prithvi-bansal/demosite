@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="div-flex" style="display: flex;align-items: center; justify-content: right;">
+    <a href="{% url 'logout' %}"><button class="btn btn-primary" type="button">Log Out</button></a>
+</div>
+<br>
+<table class="table table-bordered" style="padding-top: 10px;">
+    <thead>
+        <tr>
+            <th>Items</th>
+            <th>Price (£)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div style="padding-top: 10px;">
+    <a href="{% url 'summary' %}"><button class="btn btn-primary" type="button">Summary</button></a>
+</div>
+
+{% endblock %}
