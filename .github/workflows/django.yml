@@ -36,6 +36,19 @@ jobs:
         # Print the branch name
         echo "Branch Name: $BRANCH_NAME"
 
+    - name: Set up PostgreSQL
+      uses: postgresql/setup-postgres@v2
+      with:
+        postgresql-version: '13'
+        database: 'demosite'
+        username: 'postgres'
+        password: 'psql'
+
+    - name: Apply Migrations
+      run: |
+        python manage.py makemigrations
+        python manage.py migrate
+
     - name: Run Tests for Product App
       run: |
         python manage.py test products.tests
